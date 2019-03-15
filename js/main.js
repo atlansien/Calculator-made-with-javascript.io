@@ -66,26 +66,21 @@ const calclation = data => {
   }
 };
 
-// %を押した場合の動作
 const percent = () => {
-  if (flag === 0 && total === "") { //入力した数字を割る
-    let formula = currentValue / 100;
-    currentValue = eval(formula);
+  if(symbol === "+" || symbol === "-") { // 足し算、引き算の場合の動作
+   let formula = currentValue / 100;
+   formula = total * formula;
+   currentValue = eval(formula);
+   
+   screen.textContent = currentValue;
+ }else { // それ以外(数字のみ、掛け算、割り算の動作)
+   let formula = currentValue / 100;
+   currentValue = eval(formula);
 
-    screen.textContent = currentValue;
-
-  } else if (symbol === "*" || symbol === "/") { // 掛け算、乗算の場合の動作
-    currentValue = currentValue / 100;
-    screen.textContent = currentValue;
-
-  } else { // 足し算、引き算の場合の動作
-    let formula = currentValue / 100;
-    formula = total * formula;
-    currentValue = eval(formula);
-    
-    screen.textContent = currentValue;
-  }
+   screen.textContent = currentValue;
+ }
 };
+
 
 // ACを押した場合の動作
 const allCrear = () => {
