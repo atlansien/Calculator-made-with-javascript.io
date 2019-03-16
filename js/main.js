@@ -90,3 +90,4 @@ const allCrear = () => {
   flag = 0;
   screen.textContent = "0";
 };
+
