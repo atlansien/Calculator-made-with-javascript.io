@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <section id="frame">
+      <p class="logo">Electronic Calculator</p>
+      <div id="screen">0</div>
+      <div class="horizontal">
+        <a class="btn number ac" onclick="allCrear()">AC</a>
+        <a class="btn number" onclick="inverted()">+/-</a>
+        <a class="btn number" onclick="percent()">%</a>
+        <a class="btn number" onclick="calclation('/')">÷</a>
+      </div>
+      <div class="horizontal">
+        <a class="btn number" onclick="inputValue(7)">7</a>
+        <a class="btn number" onclick="inputValue(8)">8</a>
+        <a class="btn number" onclick="inputValue(9)">9</a>
+        <a class="btn number" onclick="calclation('*')">×</a>
+      </div>
+      <div class="horizontal">
+        <a class="btn number" onclick="inputValue(4)">4</a>
+        <a class="btn number" onclick="inputValue(5)">5</a>
+        <a class="btn number" onclick="inputValue(6)">6</a>
+        <a class="btn number" onclick="calclation('-')">-</a>
+      </div>
+      <div class="horizontal">
+        <a class="btn number" onclick="inputValue(1)">1</a>
+        <a class="btn number" onclick="inputValue(2)">2</a>
+        <a class="btn number" onclick="inputValue(3)">3</a>
+        <a class="btn number" onclick="calclation('+')">+</a>
+      </div>
+      <div class="horizontal">
+        <a class="btn zero" onclick="inputValue(0)">0</a>
+        <a class="btn number" onclick="inputDot('.')">.</a>
+        <a class="btn number" onclick="calclation('=')">=</a>
+      </div>
+    </section>
+    <script src="js/main.js"></script>
+  </body>
+</html>
