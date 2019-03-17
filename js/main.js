@@ -5,7 +5,7 @@ const SYMBOL_TYPE = {
   DIV: `/`,
   EQU: "="
 };
-let symbol = SYMBOL_TYPE.ADD;
+let symbol;
 
 const FLAG_TYPE = {
   NUMBER: 0,
@@ -13,6 +13,7 @@ const FLAG_TYPE = {
 };
 let flag = FLAG_TYPE.NUMBER;
 
+let formula;
 let total = "";
 let currentValue = "";
 
@@ -54,9 +55,9 @@ const calculate = data => {
     return;
   }
 
-  let formula;
   if (flag === FLAG_TYPE.NUMBER && data !== SYMBOL_TYPE.EQU) { // =以外の記号を押した
     flag = FLAG_TYPE.OPERATOR;
+    symbol = SYMBOL_TYPE.ADD; // 初期状態で+演算子を代入していると数字のみの%計算がおかしくなってしまうためこちらで代入
     formula = total + symbol + currentValue;
     symbol = data;
   } else if (flag === FLAG_TYPE.OPERATOR && data === SYMBOL_TYPE.EQU) { // =を２回以上連打した
@@ -77,17 +78,13 @@ const calculate = data => {
 
 const percent = () => {
   if (symbol === SYMBOL_TYPE.ADD || symbol === SYMBOL_TYPE.SUB) { // 足し算、引き算の場合の動作
-    let formula = currentValue / 100;
+    formula = currentValue / 100;
     formula = total * formula;
-    currentValue = eval(formula);
-
-    screen.textContent = currentValue;
   } else { // それ以外(数字のみ、掛け算、割り算の動作)
-    let formula = currentValue / 100;
-    currentValue = eval(formula);
-
-    screen.textContent = currentValue;
+    formula = currentValue / 100;
   }
+  currentValue = eval(formula);
+  screen.textContent = currentValue;
 };
 
 // ACを押した場合の動作
